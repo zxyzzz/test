@@ -285,6 +285,10 @@
     },
     "_enabled": true,
     "__prefab": null,
+    "blockPrefab": {
+      "__uuid__": "7b026460-d5d0-42b5-9171-e5f07be2c97e",
+      "__expectedType__": "cc.Prefab"
+    },
     "_id": "222XE1dK9OAohsUJ4+iICI"
   },
   {

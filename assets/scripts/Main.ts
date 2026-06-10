@@ -24,7 +24,7 @@ export class Main extends Component {
         const block = blockNode.getComponent(Block)!;
 
         // 设置方块颜色为红色
-        block.setColor(new Color(255, 0, 0));
+        block.setColor(new Color(172, 33, 255));
 
         // 设置方块位置（居中显示）
         blockNode.setPosition(0, 0);
