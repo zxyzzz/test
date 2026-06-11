@@ -30,7 +30,7 @@ export class BlockCtrl extends Component {
 
     onLoad() {
         // 监听键盘按键
-        input.on(Input.KEY_DOWN, this.onKeyPress, this);
+        input.on(Input.EventType.KEY_DOWN, this.onKeyPress, this);
         // 游戏启动，生成第一个方块
         this.createNewShape();
     }
@@ -73,7 +73,7 @@ export class BlockCtrl extends Component {
             const gx = this.curGridPos.x + p.x;
             const gy = this.curGridPos.y + p.y;
             const worldPos = this.mapCtrl.grid2World(gx, gy);
-            this.blockNodes[i].setPosition(worldPos);
+            this.blockNodes[i].setPosition(worldPos.x, worldPos.y, 0);
         }
     }
 
@@ -134,16 +134,16 @@ export class BlockCtrl extends Component {
     // 键盘事件监听
     onKeyPress(event: any) {
         switch (event.keyCode) {
-            case KeyCode.LEFT_ARROW:  // 左方向键
+            case KeyCode.ARROW_LEFT:  // 左方向键
                 this.moveBlock(-1, 0);
                 break;
-            case KeyCode.RIGHT_ARROW: // 右方向键
+            case KeyCode.ARROW_RIGHT: // 右方向键
                 this.moveBlock(1, 0);
                 break;
-            case KeyCode.DOWN_ARROW:  // 下方向键
+            case KeyCode.ARROW_DOWN:  // 下方向键
                 this.moveBlock(0, 1);
                 break;
-            case KeyCode.UP_ARROW:    // 上方向键 = 旋转
+            case KeyCode.ARROW_UP:    // 上方向键 = 旋转
                 this.rotateBlock();
                 break;
         }
@@ -151,6 +151,6 @@ export class BlockCtrl extends Component {
 
     onDestroy() {
         // 移除监听，防止内存泄漏
-        input.off(Input.KEY_DOWN, this.onKeyPress, this);
+        input.off(Input.EventType.KEY_DOWN, this.onKeyPress, this);
     }
 }
