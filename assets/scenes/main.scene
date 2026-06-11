@@ -410,7 +410,9 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "blockRoot": null,
+    "blockRoot": {
+      "__id__": 12
+    },
     "_id": "28OSeY80tJI56tmp1RD2gA"
   },
   {
