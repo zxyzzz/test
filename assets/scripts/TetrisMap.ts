@@ -20,14 +20,20 @@ export class TetrisMap extends Component {
     onLoad() {
         // 获取TiledMap组件
         this._map = this.getComponent(TiledMap)!;
+                        console.log("_map", this._map);
+
         // 获取地图图层 【名称必须和Tiled里一致：gridLayer】
         this._layer = this._map.getLayer("gridLayer")!;
+                console.log("_layer", this._layer);
+
         if (!this._layer) {
             console.error("错误：找不到图层 gridLayer，请检查Tiled图层名称！");
             return;
         }
         // 获取单格瓦片尺寸
         this.tileSize = this._map.getTileSize().width;
+
+        console.log("tileSize", this.tileSize);
     }
 
     // 格子坐标 → 引擎世界坐标（解决Tiled与Cocos Y轴反向问题）
